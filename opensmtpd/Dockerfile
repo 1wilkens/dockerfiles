@@ -28,4 +28,4 @@ COPY --from=builder /go/src/github.com/poolpOrg/filter-rspamd/filter-rspamd /usr
 
 # WORKDIR + CMD
 WORKDIR /var/spool/smtpd
-CMD ["smtpd", "-dv", "-f", "/etc/mail/smtpd.conf"]
+CMD ["smtpd", "-d", "-f", "/etc/mail/smtpd.conf"]
