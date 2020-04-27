@@ -14,11 +14,10 @@ FROM alpine:3.11
 LABEL maintainer "Florian Wilkens <docker@1wilkens.org>"
 EXPOSE 25 587
 
-ENV OPENSMTPD_VERSION 6.6.4p1
-
 # Install opensmtpd
 RUN apk add --no-cache libressl \
-        "opensmtpd~${OPENSMTPD_VERSION}" \
+        opensmtpd \
+        && rm -rf /var/cache/apk/* \
         && install -d -m 711 /var/spool/smtpd
 
 # Copy rspamd filter from builder
