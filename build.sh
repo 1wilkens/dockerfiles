@@ -19,11 +19,11 @@ for image in */; do
         cd ${version}
 
         # Assemble tag string
-        tag="alpine-${version}"
+        tag="${version}"
         echo "## Building tag: ${repo_image}:${tag}"
 
         # Build the tag
-        docker build --pull -t "${repo_image}:${tag}" .
+        docker build --pull --no-cache -t "${repo_image}:${tag}" .
 
         # (Optionally) push the tag
         if [[ "$1" == "push" ]]; then
