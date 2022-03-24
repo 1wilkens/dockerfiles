@@ -4,6 +4,11 @@ set -e
 
 REPOSITORY="1wilkens"
 
+# lazy way to add timestamps to the output
+echo() {
+    command echo "$(date)" "$@"
+}
+
 # Iterate images
 for image in */; do
     # Strip directory suffix
