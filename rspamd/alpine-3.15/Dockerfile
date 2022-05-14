@@ -2,6 +2,7 @@ FROM alpine:3.15
 
 LABEL maintainer "Florian Wilkens <docker@1wilkens.org>"
 EXPOSE 11333
+EXPOSE 11334
 
 RUN apk add --no-cache shadow \
     rspamd \
@@ -14,6 +15,7 @@ RUN addgroup --gid 5000 vmail \
     && usermod -aG vmail rspamd
 
 RUN mkdir /run/rspamd \
+    && chown rspamd:vmail /run/rspamd \
     && mkdir /etc/rspamd/dkim
 
 USER rspamd
