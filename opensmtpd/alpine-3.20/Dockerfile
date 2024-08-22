@@ -1,4 +1,4 @@
-FROM golang:1.16-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 RUN apk add --no-cache git
 
@@ -9,9 +9,9 @@ RUN cd filter-rspamd \
     && go build \
     && chmod 0555 filter-rspamd
 
-FROM alpine:3.14
+FROM alpine:3.20
 
-LABEL maintainer "Florian Wilkens <docker@1wilkens.org>"
+LABEL maintainer="Florian Wilkens <docker@1wilkens.org>"
 EXPOSE 25 587
 
 # Install opensmtpd

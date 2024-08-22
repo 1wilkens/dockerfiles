@@ -1,6 +1,6 @@
-FROM alpine:3.15
+FROM alpine:3.20
 
-LABEL maintainer "Florian Wilkens <docker@1wilkens.org>"
+LABEL maintainer="Florian Wilkens <docker@1wilkens.org>"
 EXPOSE 11333
 EXPOSE 11334
 
@@ -20,4 +20,4 @@ RUN mkdir /run/rspamd \
 
 USER rspamd
 
-CMD ["/usr/sbin/rspamd", "-i", "-f"]
+CMD ["/usr/bin/rspamd", "-i", "-f"]

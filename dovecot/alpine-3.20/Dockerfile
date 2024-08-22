@@ -1,6 +1,6 @@
-FROM alpine:3.13
+FROM alpine:3.20
 
-LABEL maintainer "Florian Wilkens <docker@1wilkens.org>"
+LABEL maintainer="Florian Wilkens <docker@1wilkens.org>"
 EXPOSE 24 993 4190
 
 RUN apk add --no-cache shadow \
