@@ -28,7 +28,7 @@ for image in */; do
         echo "## Building tag: ${repo_image}:${tag}"
 
         # Build the tag
-        docker build --pull --no-cache -t "${repo_image}:${tag}" .
+        docker buildx build --pull --no-cache -t "${repo_image}:${tag}" .
 
         # (Optionally) push the tag
         if [[ "$1" == "push" ]]; then
