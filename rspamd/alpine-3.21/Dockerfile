@@ -5,15 +5,15 @@ EXPOSE 11333 11334
 
 ARG VMAIL_GID="5000"
 
-RUN apk add --no-cache shadow \
+RUN apk add --no-cache \
     rspamd \
     rspamd-controller \
     rspamd-proxy \
     ca-certificates \
     && rm -rf /var/cache/apk/*
 
-RUN addgroup --gid ${VMAIL_GID} vmail \
-    && usermod -aG vmail rspamd
+RUN addgroup -g ${VMAIL_GID} vmail \
+    && adduser rspamd vmail
 
 RUN mkdir /run/rspamd \
     && chown rspamd:vmail /run/rspamd \
